@@ -19,8 +19,10 @@ import Delivery from "./views/Delivery/Delivery";
 import VisaForm from "./views/Payment/VisaForm";
 import AppProvider from "./services/AppContext";
 import ProductsCategory from "./views/ProductsCategory/ProductsCategory";
+import ProductsBrand from "./views/ProductsBrand/ProductsBrand";
 import About from "./views/About/About";
 import OrdersCustomer from "./views/OrdersCustomer/OrdersCustomer";
+import ListBrands from './views/ListBrands/ListBrands';
 
 class App extends Component {
   render() {
@@ -50,6 +52,11 @@ class App extends Component {
                   component={ProductsCategory}
                 />
                 <Route path="/about" component={About} />
+                <Route path = "/brands" component = {ListBrands}></Route>
+                <Route
+                  path="/productsbrand/:id"
+                  component={ProductsBrand}
+                />
               </Switch>
             </div>
           </ContainerPage>
