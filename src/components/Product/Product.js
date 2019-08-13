@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Product.scss";
-import product1 from "../../image/product.png";
 import { Link } from "react-router-dom";
 // import RatingProduct from "../Rating/RatingProduct";
 
@@ -17,7 +16,7 @@ class Product extends Component {
           <div className="img-container">
             <Link to={`/details/${_id}`}>
               <img
-                src={image ? image : product1}
+                src={image }
                 alt="product"
                 className="card-img-top"
               />

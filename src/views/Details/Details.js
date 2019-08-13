@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Details.scss";
-import product1 from "../../image/product1.png";
 import Axios from "axios";
 import { Form, withFormik } from "formik";
 import * as yup from "yup";
@@ -53,7 +52,7 @@ class Details extends Component {
             <div className="detail-left col-sm-12 col-md-6 col-lg-6 col-xl-6">
               <h1 className="name">{name}</h1>
               <div className="image">
-                <img src={image ? image : product1} alt="" className="image" />
+                <img src={image } alt="" className="image" />
               </div>
               <p className="description">{description}</p>
             </div>

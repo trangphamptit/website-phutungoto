@@ -5,7 +5,7 @@ import { getBestsellers } from "./bestseller";
 import { getProductscategory } from "./productscategory";
 import { getOrdersCustomer } from "./getorderscustomer";
 import { getStatus } from "./getstatus";
-
+import {getBrands} from './getbrands';
 export const AppContext = React.createContext();
 class AppProvider extends Component {
   constructor(props) {
@@ -22,6 +22,7 @@ class AppProvider extends Component {
       orders: [],
       user: {},
       deliveryInfor: {},
+      brands: [],
       // status: "",
       // getStatus: async () => {
       //   const status = await getStatus();
@@ -36,6 +37,11 @@ class AppProvider extends Component {
         const categories = await getCategories();
         this.setState({ categories });
         console.log("categories", categories);
+      },
+      getBrands: async () => {
+        const brands = await getBrands();
+        this.setState({ brands });
+        console.log("brands", brands);
       },
       getBestsellers: async () => {
         const bestsellers = await getBestsellers();
