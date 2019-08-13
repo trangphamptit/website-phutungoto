@@ -45,6 +45,7 @@ class Details extends Component {
       quantity,
       discountAmount
     } = this.state.details;
+    const {formatMoney} = this.context;
     if (_id) {
       return (
         <div className="detailpage col-12">
@@ -59,7 +60,7 @@ class Details extends Component {
 
             <div className="detail-right col-sm-12 col-md-6 col-lg-6 col-xl-6">
               <Form className="select" onSubmit={this.props.handleSubmit}>
-                <h4>Giá: {price}</h4>
+                <h4>Giá: {formatMoney(price)}</h4>
                 <h4>Hãng sản xuất:{brandID.name}</h4>
                 <h4>Số lượng</h4>
                 <div className="quantity">
@@ -127,4 +128,5 @@ const FormikForm = withFormik({
     props.history.push("/cart");
   }
 })(Details);
+Details.contextType = AppContext;
 export default FormikForm;

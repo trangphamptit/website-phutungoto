@@ -92,7 +92,7 @@ class AppProvider extends Component {
     cart.map(item => {
       _total += (item.price - item.discountAmount) * item.cartquantity;
     });
-    return _total;
+    return this.formatMoney(_total);
   };
   getLengthCart = cart => {
     let lengthCart = 0;
@@ -152,6 +152,12 @@ class AppProvider extends Component {
     this.setState({ deliveryInfor: deliveryInfor });
   };
 
+  formatMoney= (number)=> {
+    
+number = number.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
+return number;
+  };
+
   render() {
     return (
       <AppContext.Provider
@@ -170,7 +176,8 @@ class AppProvider extends Component {
           getLengthCart: this.getLengthCart,
           getFromLocal: this.getFromLocal,
           getDeliveryLocal: this.getDeliveryLocal,
-          getOrderStatus: this.getOrderStatus
+          getOrderStatus: this.getOrderStatus,
+          formatMoney: this.formatMoney
         }}
       >
         {this.props.children}

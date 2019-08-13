@@ -9,7 +9,7 @@ class Product extends Component {
     const { product } = this.props;
     console.log("product", product);
     const { _id, image, name, price, discountAmount } = product;
-    const { addToCart } = this.context;
+    const { addToCart, formatMoney } = this.context;
     return (
       <div className="product col-xl-3 col-lg-3 col-md-3 col-sm-12">
         <div className="card ">
@@ -22,7 +22,7 @@ class Product extends Component {
               />
               {discountAmount > 0 ? (
                 <div className="discount">
-                  <span> -{discountAmount}vnđ</span>
+                  <span> -{formatMoney(discountAmount)}</span>
                 </div>
               ) : null}
             </Link>
@@ -42,7 +42,7 @@ class Product extends Component {
         </div>
         <div className="card-footer ">
           <p className="product-name ">{name}</p>
-          <h5 className="product-price ">{price}</h5>
+          <h5 className="product-price ">{formatMoney(price)}</h5>
         </div>
         {/* <RatingProduct /> */}
       </div>
