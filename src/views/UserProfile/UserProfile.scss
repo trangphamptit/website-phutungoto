@@ -1,0 +1,28 @@
+.profile {
+  text-align: center;
+  margin: auto;
+  color: white;
+  height: 400px;
+
+  padding: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  .user-img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+  h4 {
+    font-style: italic;
+    text-transform: capitalize;
+  }
+  label {
+    width: 100%;
+    height: auto;
+    background-color: gray;
+    padding: 5px 0px;
+    margin: 5px 0px 15px;
+    opacity: 0.8;
+    border-radius: 8px;
+  }
+}

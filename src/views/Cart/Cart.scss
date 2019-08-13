@@ -1,0 +1,25 @@
+table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 80%;
+}
+
+th,
+td {
+  border: none;
+  text-align: left;
+  padding: 8px;
+  color: white;
+}
+
+#table {
+  overflow-x: auto;
+}
+
+.cart {
+  margin: 20px;
+  padding: 20px;
+  background-color: black;
+  opacity: 0.8;
+}

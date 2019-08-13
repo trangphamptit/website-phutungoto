@@ -1,0 +1,111 @@
+.product {
+  margin-bottom: 15px;
+  .card {
+    border-color: transparent;
+    position: relative;
+    .discount {
+      color: white;
+      padding: 5px;
+
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: red;
+      top: 20px;
+      right: 20px;
+      position: absolute;
+      span {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .card-footer {
+    border-top: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .product-name {
+      margin-bottom: 0px;
+
+      font-size: 0.8rem;
+    }
+    .product-price {
+      font-style: italic;
+      margin-bottom: 0px;
+
+      font-size: 0.8rem;
+    }
+  }
+  &:hover {
+    .card {
+      border: 0.04rem solid rgba(0, 0, 0, 0.2);
+      box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
+    }
+    .card-footer {
+      color: white;
+    }
+  }
+
+  .img-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-img-top {
+    transition: all 1s linear;
+    opacity: 1;
+  }
+  .img-container:hover .card-img-top {
+    transform: scale(1.2);
+  }
+  .cart-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.2rem 0.4rem;
+    background: var(--lightBlue);
+    border: none;
+    color: var(--mainWhite);
+    font-size: 1.2rem;
+    border-radius: 0.5rem 0 0 0;
+    transform: translate(100%, 100%);
+    transition: all 0.5s linear;
+  }
+  .img-container:hover .cart-btn {
+    transform: translate(0, 0);
+  }
+  .img-container:focus .cart-btn {
+    transform: translate(0, 0);
+  }
+  .cart-btn:hover {
+    color: var(--mainBlue);
+    cursor: pointer;
+  }
+  .cart-btn:focus {
+    color: var(--mainBlue);
+    cursor: pointer;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .product {
+    .img-container:hover .cart-btn {
+      transform: translate(0, 0);
+    }
+    .img-container:focus .cart-btn {
+      transform: translate(0, 0);
+    }
+    .cart-btn:hover {
+      color: var(--mainBlue);
+      cursor: pointer;
+    }
+    .cart-btn:focus {
+      color: var(--mainBlue);
+      cursor: pointer;
+    }
+  }
+}

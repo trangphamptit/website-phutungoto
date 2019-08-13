@@ -1,0 +1,37 @@
+.deliveryform {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+
+  padding: 15px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: black;
+  opacity: 0.8;
+}
+.delivery-title {
+  text-align: center;
+}
+select,
+input[type="time"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.choosepayment {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+
+  .paymenttype {
+    .payment-img {
+      height: 200px;
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+.mainpage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(106, 165, 165);
+}
+section {
+  min-height: calc(100vh - 100px);
+}
+a {
+  text-decoration: none;
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--lightBlue);
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 600;
+  color: white;
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  color: white;
+  margin-right: 15px;
+}
+.title-nav {
+  display: flex;
+  justify-content: start;
+  justify-items: center;
+  align-items: center;
+  color: white;
+  margin-bottom: 15px;
+}
+p {
+  color: white;
+}
+label {
+  color: white;
+}
+span {
+  color: white;
+}
+.error {
+  color: red;
+}
