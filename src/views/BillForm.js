@@ -5,10 +5,6 @@ import axios from "axios";
 import Modal from "../components/Modal/Modal";
 import "./BillForm.scss";
 class BillForm extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   createOrder = () => {
     // console.log("user", this.context.user);
     // console.log("status", this.context.status);

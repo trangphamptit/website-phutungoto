@@ -6,10 +6,8 @@ class ListBrands extends Component {
   componentDidMount() {
     this.context.getBrands();
   }
-
   render() {
     const { brands } = this.context;
-    console.log("brands", brands);
     return (
       <div className="listcategory row">
         {brands.map((brand, index) => (

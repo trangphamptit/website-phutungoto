@@ -5,8 +5,8 @@ import { getBestsellers } from "./bestseller";
 import { getProductscategory } from "./productscategory";
 import { getOrdersCustomer } from "./getorderscustomer";
 import { getStatus } from "./getstatus";
-import {getBrands} from './getbrands';
-import {getProductsBrand} from './productsbrand';
+import { getBrands } from "./getbrands";
+import { getProductsBrand } from "./productsbrand";
 export const AppContext = React.createContext();
 class AppProvider extends Component {
   constructor(props) {
@@ -56,6 +56,8 @@ class AppProvider extends Component {
       getProductsBrand: async id => {
         const productsbrand = await getProductsBrand(id);
         this.setState({ productsbrand });
+
+        console.log("productbrand", productsbrand);
       },
       getOrdersCustomer: async customerID => {
         const orders = await getOrdersCustomer(customerID);
@@ -92,7 +94,7 @@ class AppProvider extends Component {
     cart.map(item => {
       _total += (item.price - item.discountAmount) * item.cartquantity;
     });
-    return this.formatMoney(_total);
+    return _total;
   };
   getLengthCart = cart => {
     let lengthCart = 0;
@@ -152,10 +154,12 @@ class AppProvider extends Component {
     this.setState({ deliveryInfor: deliveryInfor });
   };
 
-  formatMoney= (number)=> {
-    
-number = number.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
-return number;
+  formatMoney = number => {
+    number = number.toLocaleString("it-IT", {
+      style: "currency",
+      currency: "VND"
+    });
+    return number;
   };
 
   render() {

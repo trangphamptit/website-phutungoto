@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { AppContext } from "../../services/AppContext";
 
 export default class CartTotals extends Component {
   checkLogin = () => {
@@ -13,6 +14,8 @@ export default class CartTotals extends Component {
   };
   render() {
     const { clearCart } = this.props.value;
+    const { formatMoney } = this.context;
+    console.log("total: ", this.props.total);
     return (
       <React.Fragment>
         <div className="row mt-5 text-capitalize">
@@ -24,17 +27,17 @@ export default class CartTotals extends Component {
           >
             <li>
               <span>Tổng tiền : </span>
-              <span> {this.props.total} vnđ </span>
+              <span> {formatMoney(this.props.total)} </span>
             </li>
 
             <li>
               <span>Phí giao hàng : </span>
-              <span>15.000 vnđ</span>
+              <span>{formatMoney(15000)}</span>
             </li>
 
             <li className=" text-capitalize">
               <span>Hóa đơn: </span>
-              <span>{this.props.total + 15000} vnđ</span>
+              <span>{formatMoney(this.props.total + 15000)}</span>
             </li>
           </ul>
         </div>
@@ -63,3 +66,5 @@ export default class CartTotals extends Component {
     );
   }
 }
+
+CartTotals.contextType = AppContext;

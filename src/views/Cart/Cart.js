@@ -15,6 +15,7 @@ export default class Cart extends Component {
 
             if (cart.length > 0) {
               const subtotal = value.getTotal(cart);
+              console.log("subtotal", subtotal);
               return (
                 <React.Fragment>
                   <h1 style={{ textAlign: "center" }}>Sản phẩm đã chọn</h1>

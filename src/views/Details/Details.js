@@ -25,14 +25,6 @@ class Details extends Component {
     }
   }
 
-  handleSizeChange = event => {
-    const value = event.target.value;
-    const sizeObj = this.state.details.variantProducts.find(
-      item => item.value === value
-    );
-    this.props.setFieldValue("size", sizeObj);
-  };
-
   render() {
     const {
       _id,
@@ -45,7 +37,7 @@ class Details extends Component {
       quantity,
       discountAmount
     } = this.state.details;
-    const {formatMoney} = this.context;
+    const { formatMoney } = this.context;
     if (_id) {
       return (
         <div className="detailpage col-12">
@@ -53,7 +45,7 @@ class Details extends Component {
             <div className="detail-left col-sm-12 col-md-6 col-lg-6 col-xl-6">
               <h1 className="name">{name}</h1>
               <div className="image">
-                <img src={image } alt="" className="image" />
+                <img src={image} alt="" className="image" />
               </div>
               <p className="description">{description}</p>
             </div>

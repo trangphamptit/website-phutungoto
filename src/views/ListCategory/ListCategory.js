@@ -6,7 +6,6 @@ class ListCategory extends Component {
   componentDidMount() {
     this.context.getCategories();
   }
-
   render() {
     const { categories } = this.context;
     return (
@@ -18,6 +17,5 @@ class ListCategory extends Component {
     );
   }
 }
-
 ListCategory.contextType = AppContext;
 export default ListCategory;

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { apiLinks } from "./APILinks";
 export async function getOrdersCustomer(customerID) {
   try {
     const { data } = await axios.get(

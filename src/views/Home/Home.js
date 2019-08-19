@@ -9,6 +9,7 @@ import Product from "../../components/Product/Product";
 
 import { AppContext } from "../../services/AppContext";
 import Category from "../ListCategory/Category";
+import Brand from "../ListBrands/Brand";
 class Home extends Component {
   componentDidMount() {
     this.context.getProducts();
@@ -45,7 +46,6 @@ class Home extends Component {
 
         <div className="title-nav">
           <h1>Danh mục sản phẩm</h1>
-
           <Link to="/listcategory">
             {" "}
             <button className="btn btn-danger px-2 ">xem thêm</button>
@@ -55,9 +55,26 @@ class Home extends Component {
           <AppContext.Consumer>
             {value => {
               let homeCategories = value.categories.slice(0, 4);
-
               return homeCategories.map(category => (
                 <Category key={category._id} category={category} />
+              ));
+            }}
+          </AppContext.Consumer>
+        </div>
+
+        <div className="title-nav">
+          <h1>Các hãng sản xuất</h1>
+          <Link to="/brands">
+            {" "}
+            <button className="btn btn-danger px-2 ">xem thêm</button>
+          </Link>
+        </div>
+        <div className="row">
+          <AppContext.Consumer>
+            {value => {
+              let homeBrands = value.brands.slice(0, 4);
+              return homeBrands.map(brand => (
+                <Brand key={brand._id} brand={brand} />
               ));
             }}
           </AppContext.Consumer>

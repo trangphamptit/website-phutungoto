@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import "./App.css";
 import Home from "./views/Home/Home";
 import UserProfile from "./views/UserProfile/UserProfile";
-
 import Details from "./views/Details/Details";
 import ListCategory from "./views/ListCategory/ListCategory";
 import Products from "./views/Products/Products";
@@ -15,14 +14,13 @@ import BillForm from "./views/BillForm.js";
 import Login from "./views/Login/Login";
 import Signup from "./views/Signup/Signup";
 import Delivery from "./views/Delivery/Delivery";
-
 import VisaForm from "./views/Payment/VisaForm";
 import AppProvider from "./services/AppContext";
 import ProductsCategory from "./views/ProductsCategory/ProductsCategory";
 import ProductsBrand from "./views/ProductsBrand/ProductsBrand";
 import About from "./views/About/About";
 import OrdersCustomer from "./views/OrdersCustomer/OrdersCustomer";
-import ListBrands from './views/ListBrands/ListBrands';
+import ListBrands from "./views/ListBrands/ListBrands";
 
 class App extends Component {
   render() {
@@ -34,7 +32,6 @@ class App extends Component {
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/userprofile" component={UserProfile} />
-                {/* <Route path="/details" component={Details} /> */}
                 <Route path="/details/:id" component={Details} />
                 <Route path="/listcategory" component={ListCategory} />
                 <Route path="/products" component={Products} />
@@ -44,7 +41,6 @@ class App extends Component {
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={Signup} />
                 <Route path="/delivery" component={Delivery} />
-
                 <Route path="/visaform" component={VisaForm} />
                 <Route path="/orders" component={OrdersCustomer} />
                 <Route
@@ -52,11 +48,8 @@ class App extends Component {
                   component={ProductsCategory}
                 />
                 <Route path="/about" component={About} />
-                <Route path = "/brands" component = {ListBrands}></Route>
-                <Route
-                  path="/productsbrand/:id"
-                  component={ProductsBrand}
-                />
+                <Route path="/brands" component={ListBrands} />
+                <Route path="/productsbrand/:id" component={ProductsBrand} />
               </Switch>
             </div>
           </ContainerPage>
