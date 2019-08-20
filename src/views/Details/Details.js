@@ -56,15 +56,13 @@ class Details extends Component {
                 <h4>Hãng sản xuất:{brandID.name}</h4>
                 <h4>Số lượng</h4>
                 <div className="quantity">
-                  <div className="topping">
-                    <input
-                      type="number"
-                      min="1"
-                      max="10"
-                      name="quantity"
-                      onChange={this.props.handleChange}
-                    />
-                  </div>
+                  <input
+                    type="number"
+                    min="1"
+                    max="10"
+                    name="quantity"
+                    onChange={this.props.handleChange}
+                  />
                 </div>
                 <AppContext.Consumer>
                   {value => (

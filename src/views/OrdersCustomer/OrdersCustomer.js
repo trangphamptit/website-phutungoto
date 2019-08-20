@@ -18,9 +18,9 @@ class OrdersCustomer extends Component {
     }, 1000);
   }
   render() {
-    let { orders, products, user, getOrderStatus } = this.context;
-    console.log("orders", orders);
-    console.log("user", user);
+    let { orders, products, user, getOrderStatus, formatMoney } = this.context;
+    // console.log("orders", orders);
+    // console.log("user", user);
 
     if (user) {
       return (
@@ -49,6 +49,7 @@ class OrdersCustomer extends Component {
                       </thead>
                       <tbody>
                         {order.orderDetails.map((orderDetail, index) => {
+                          console.log("detail", orderDetail);
                           return (
                             <tr key={index}>
                               <td className="center">{index + 1}</td>
@@ -56,7 +57,9 @@ class OrdersCustomer extends Component {
                                 {orderDetail.name}
                               </td>
 
-                              <td className="right">{orderDetail.price}</td>
+                              <td className="right">
+                                {formatMoney(orderDetail.price)}
+                              </td>
                               <td className="center">{orderDetail.quantity}</td>
                               <td className="right">{orderDetail.total}</td>
                             </tr>

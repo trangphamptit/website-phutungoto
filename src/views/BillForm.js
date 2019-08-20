@@ -6,8 +6,6 @@ import Modal from "../components/Modal/Modal";
 import "./BillForm.scss";
 class BillForm extends Component {
   createOrder = () => {
-    // console.log("user", this.context.user);
-    // console.log("status", this.context.status);
     const { clearCart, openModal } = this.context;
     let orders = this.context.cart.map(item => {
       let orderDetail = {
@@ -16,8 +14,6 @@ class BillForm extends Component {
       };
       return orderDetail;
     });
-    // console.log(this.context.user._id);
-    // console.log(orders);
     let ordersLink = apiLinks.orders;
     axios
       .post(ordersLink, {
@@ -39,13 +35,7 @@ class BillForm extends Component {
       });
   };
   render() {
-    const {
-      cart,
-
-      user,
-
-      getTotal
-    } = this.context;
+    const { cart, user, getTotal, formatMoney } = this.context;
 
     const total = getTotal(cart);
     return (
@@ -100,10 +90,10 @@ class BillForm extends Component {
                       <tr key={index}>
                         <td className="center">{index}</td>
                         <td className="left strong">{item.name}</td>
-                        <td className="right">{item.price}</td>
+                        <td className="right">{formatMoney(item.price)}</td>
                         <td className="right">{item.cartquantity}</td>
                         <th className="right">
-                          {(item.price - item.discountAmount) *
+                          {formatMoney(item.price - item.discountAmount) *
                             item.cartquantity}
                         </th>
                       </tr>
@@ -120,21 +110,21 @@ class BillForm extends Component {
                         <td className="left">
                           <strong>Tổng tiền:</strong>
                         </td>
-                        <td className="right">{total}vnđ </td>
+                        <td className="right">{formatMoney(total)} </td>
                       </tr>
 
                       <tr>
                         <td className="left">
                           <strong>Phí ship</strong>
                         </td>
-                        <td className="right">15.000 vnđ </td>
+                        <td className="right">{formatMoney(15000)}</td>
                       </tr>
                       <tr>
                         <td className="left">
                           <strong>Trạng thái</strong>
                         </td>
                         <td className="right">
-                          <strong>{total + 15000} vnđ</strong>
+                          <strong>{formatMoney(total + 15000)}</strong>
                         </td>
                       </tr>
                     </tbody>

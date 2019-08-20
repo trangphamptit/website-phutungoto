@@ -17,30 +17,28 @@ class Home extends Component {
   }
 
   render() {
+    const { bestsellers, products, categories, brands } = this.context;
     return (
       <div className="home col-12">
         {/* <Slider /> */}
         <div className="title-nav">
           <h1>Sản phẩm bán chạy</h1>
-
           <Link to="/bestseller">
             {" "}
             <button className="btn btn-danger px-2">xem thêm</button>
           </Link>
         </div>
-
         <div className="bestseller row">
-          <AppContext.Consumer>
-            {value => {
-              let homeBestsellers = value.bestsellers.slice(0, 4);
-              return homeBestsellers.map(bestseller => (
-                <BestSellerProduct
-                  key={bestseller._id}
-                  bestseller={bestseller}
-                />
-              ));
-            }}
-          </AppContext.Consumer>
+          {bestsellers
+            ? bestsellers
+                .slice(0, 4)
+                .map(bestseller => (
+                  <BestSellerProduct
+                    key={bestseller._id}
+                    bestseller={bestseller}
+                  />
+                ))
+            : null}
           {/* <BestSeller /> */}
         </div>
 
