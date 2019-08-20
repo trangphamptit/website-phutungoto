@@ -13,11 +13,14 @@ import Brand from "../ListBrands/Brand";
 class Home extends Component {
   componentDidMount() {
     this.context.getProducts();
+    this.context.getCategories();
     this.context.getBestsellers();
+    this.context.getBrands();
   }
 
   render() {
     const { bestsellers, products, categories, brands } = this.context;
+    console.log('categories :', categories);
     return (
       <div className="home col-12">
         {/* <Slider /> */}
@@ -50,14 +53,10 @@ class Home extends Component {
           </Link>
         </div>
         <div className="row">
-          <AppContext.Consumer>
-            {value => {
-              let homeCategories = value.categories.slice(0, 4);
-              return homeCategories.map(category => (
-                <Category key={category._id} category={category} />
-              ));
-            }}
-          </AppContext.Consumer>
+          {categories ? categories.slice(0, 4).map(category => (
+              <Category key={category._id} category={category} />
+            )) 
+            : null}
         </div>
 
         <div className="title-nav">
@@ -68,14 +67,10 @@ class Home extends Component {
           </Link>
         </div>
         <div className="row">
-          <AppContext.Consumer>
-            {value => {
-              let homeBrands = value.brands.slice(0, 4);
-              return homeBrands.map(brand => (
-                <Brand key={brand._id} brand={brand} />
-              ));
-            }}
-          </AppContext.Consumer>
+        {brands ? brands.slice(0, 4).map(brand => (
+              <Brand key={brand._id} brand={brand} />
+            )) 
+            : null}
         </div>
 
         <div className="title-nav ">
@@ -88,15 +83,9 @@ class Home extends Component {
         </div>
 
         <div className="row">
-          <AppContext.Consumer>
-            {value => {
-              let homeProducts = value.products.slice(0, 4);
-
-              return homeProducts.map(product => (
+            {products ? products.slice(0, 4).map(product => (
                 <Product key={product._id} product={product} />
-              ));
-            }}
-          </AppContext.Consumer>
+              )) : null}
         </div>
       </div>
     );
