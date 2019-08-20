@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Details.scss";
 import Axios from "axios";
-import { Form, withFormik } from "formik";
+import { Form, withFormik, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { AppContext } from "../../services/AppContext";
 
@@ -10,8 +10,7 @@ class Details extends Component {
     super(props);
     this.state = {
       id: this.props.match.params.id,
-      details: {},
-      toppings: []
+      details: {}
     };
   }
   async componentDidMount() {
@@ -37,7 +36,7 @@ class Details extends Component {
       quantity,
       discountAmount
     } = this.state.details;
-    const { formatMoney } = this.context;
+    const { formatMoney, addToCart } = this.context;
     if (_id) {
       return (
         <div className="detailpage col-12">
@@ -53,45 +52,40 @@ class Details extends Component {
             <div className="detail-right col-sm-12 col-md-6 col-lg-6 col-xl-6">
               <Form className="select" onSubmit={this.props.handleSubmit}>
                 <h4>Giá: {formatMoney(price)}</h4>
-                <h4>Hãng sản xuất:{brandID.name}</h4>
+                <h4>Hãng sản xuất: {brandID.name}</h4>
                 <h4>Số lượng</h4>
-                <div className="quantity">
+                <div className="numberProducts">
                   <input
                     type="number"
                     min="1"
                     max="10"
-                    name="quantity"
+                    name="numberProducts"
                     onChange={this.props.handleChange}
                   />
                 </div>
-                <AppContext.Consumer>
-                  {value => (
-                    <button
-                      type="submit"
-                      className="btn btn-danger text-uppercase mb-3 px-5"
-                      onClick={() => {
-                        let orderDetails = [];
+                <ErrorMessage name="numberProducts" />
+                <button
+                  type="submit"
+                  className="btn btn-danger text-uppercase mb-3 px-5"
+                  onClick={() => {
+                    let orderDetails = [];
+                    let numberProducts = this.props.values;
 
-                        let quantity = this.props.values;
+                    let productID = _id;
 
-                        let productID = this.state.details._id;
-
-                        orderDetails.push({
-                          productID,
-                          quantity
-                        });
-
-                        value.addToCart(orderDetails);
-                        localStorage.setItem(
-                          "details",
-                          JSON.stringify(orderDetails)
-                        );
-                      }}
-                    >
-                      add to cart
-                    </button>
-                  )}
-                </AppContext.Consumer>
+                    orderDetails.push({
+                      productID,
+                      numberProducts
+                    });
+                    addToCart(orderDetails);
+                    localStorage.setItem(
+                      "details",
+                      JSON.stringify(orderDetails)
+                    );
+                  }}
+                >
+                  add to cart
+                </button>
               </Form>
             </div>
           </div>
@@ -106,12 +100,12 @@ class Details extends Component {
 const FormikForm = withFormik({
   mapPropsToValues: () => {
     return {
-      quantity: 1
+      numberProducts: 1
     };
   },
 
   validationSchema: yup.object().shape({
-    quantity: yup.number().required()
+    numberProducts: yup.number().required()
   }),
 
   handleSubmit: (values, { props, state }) => {

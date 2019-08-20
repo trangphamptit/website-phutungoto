@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-
 class BackToTop extends Component {
   scrollUp = () => {
     var doc = document.documentElement;
     var top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-
     if (top > 0) {
       window.scrollTo(0, top - 15);
       setTimeout(this.scrollUp, 10);

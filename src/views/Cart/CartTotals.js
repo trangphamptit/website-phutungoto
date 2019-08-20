@@ -4,7 +4,7 @@ import { AppContext } from "../../services/AppContext";
 
 export default class CartTotals extends Component {
   checkLogin = () => {
-    console.log(this.props.history);
+    // console.log(this.props.history);
     let user = localStorage.getItem("user");
     if (user) {
       this.props.history.push("/delivery");
@@ -15,7 +15,6 @@ export default class CartTotals extends Component {
   render() {
     const { clearCart } = this.props.value;
     const { formatMoney } = this.context;
-    console.log("total: ", this.props.total);
     return (
       <React.Fragment>
         <div className="row mt-5 text-capitalize">

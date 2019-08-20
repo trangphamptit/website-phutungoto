@@ -5,7 +5,6 @@ import { AppContext } from "../../services/AppContext";
 
 class Product extends Component {
   _renderSize(size) {
-    // console.log("size", size);
     return (
       <div className="mr-1">
         Size {size.value} - $ {size.price}
@@ -15,7 +14,6 @@ class Product extends Component {
 
   render() {
     const { bestseller } = this.props;
-    // console.log(bestseller);
     const { addToCart } = this.context;
     const { _id, image, name, variantProducts, discountAmount } = bestseller;
     return (
@@ -23,11 +21,7 @@ class Product extends Component {
         <div className="card ">
           <div className="img-container">
             <Link to={`/details/${_id}`}>
-              <img
-                src={image }
-                alt="product"
-                className="card-img-top"
-              />
+              <img src={image} alt="product" className="card-img-top" />
               {discountAmount > 0 ? (
                 <div className="discount">
                   <span> - ${discountAmount}</span>
@@ -38,7 +32,6 @@ class Product extends Component {
               <button
                 className="cart-btn"
                 onClick={() => {
-                  // console.log(bestseller);
                   bestseller.quantity = 1;
                   bestseller.size = bestseller.variantProducts[0];
                   addToCart(bestseller);

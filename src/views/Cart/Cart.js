@@ -12,14 +12,11 @@ export default class Cart extends Component {
         <AppContext.Consumer>
           {value => {
             const { cart } = value;
-
             if (cart.length > 0) {
               const subtotal = value.getTotal(cart);
-              console.log("subtotal", subtotal);
               return (
                 <React.Fragment>
                   <h1 style={{ textAlign: "center" }}>Sản phẩm đã chọn</h1>
-
                   <div id="table" className="table-hover">
                     <table>
                       <thead>
@@ -31,11 +28,9 @@ export default class Cart extends Component {
                           <th>Bỏ chọn</th>
                         </tr>
                       </thead>
-
                       <CartList value={cart} />
                     </table>
                   </div>
-
                   <CartTotals
                     value={value}
                     total={subtotal}

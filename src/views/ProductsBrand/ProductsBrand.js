@@ -9,9 +9,7 @@ class Products extends Component {
   }
 
   render() {
-    // console.log(this.props);
     const { productsbrand } = this.context;
-    console.log("productsbrand", productsbrand);
     return (
       <div className="products">
         <div className="row">

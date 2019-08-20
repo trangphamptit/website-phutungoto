@@ -79,7 +79,6 @@ class LoginContainer extends Component {
         const { data } = response;
         if (data && data.email) {
           login(data);
-
           if (history.length > HISTORY_LENGTH_FIRST_HIT) {
             history.goBack();
           } else {

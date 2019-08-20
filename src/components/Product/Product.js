@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import "./Product.scss";
 import { Link } from "react-router-dom";
-// import RatingProduct from "../Rating/RatingProduct";
 
 import { AppContext } from "../../services/AppContext";
 class Product extends Component {
   render() {
     const { product } = this.props;
-    console.log("product", product);
     const { _id, image, name, price, discountAmount } = product;
     const { addToCart, formatMoney } = this.context;
     return (
@@ -15,11 +13,7 @@ class Product extends Component {
         <div className="card ">
           <div className="img-container">
             <Link to={`/details/${_id}`}>
-              <img
-                src={image }
-                alt="product"
-                className="card-img-top"
-              />
+              <img src={image} alt="product" className="card-img-top" />
               {discountAmount > 0 ? (
                 <div className="discount">
                   <span> -{formatMoney(discountAmount)}</span>
@@ -30,8 +24,6 @@ class Product extends Component {
               <button
                 className="cart-btn"
                 onClick={() => {
-                  // console.log(product);
-
                   addToCart(product);
                 }}
               >
@@ -44,7 +36,6 @@ class Product extends Component {
           <p className="product-name ">{name}</p>
           <h5 className="product-price ">{formatMoney(price)}</h5>
         </div>
-        {/* <RatingProduct /> */}
       </div>
     );
   }

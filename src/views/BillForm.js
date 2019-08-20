@@ -22,7 +22,6 @@ class BillForm extends Component {
         orderDetails: orders
       })
       .then(function(response) {
-        console.log(response.data.message);
         if (response.data.message) {
           clearCart();
           openModal();

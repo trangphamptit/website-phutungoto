@@ -5,14 +5,10 @@ import { AppContext } from "../../services/AppContext";
 class Products extends Component {
   componentDidMount() {
     this.context.getProducts();
-    // this.context.getBrands();
   }
 
   render() {
     const { products } = this.context;
-    // const {brands} = this.context;
-    // console.log("brands", brands);
-
     return (
       <div className="products">
         <h1 className="bestsellerpage my-30 text-center">TẤT CẢ SẢN PHẨM</h1>

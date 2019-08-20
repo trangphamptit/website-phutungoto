@@ -112,7 +112,6 @@ class Header extends Component {
           <div className="cart">
             <Link to="/cart">
               <i className="fas fa-cart-arrow-down" />
-
               <span>{lengthCart}</span>
             </Link>
           </div>

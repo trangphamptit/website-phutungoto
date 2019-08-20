@@ -49,7 +49,6 @@ class OrdersCustomer extends Component {
                       </thead>
                       <tbody>
                         {order.orderDetails.map((orderDetail, index) => {
-                          console.log("detail", orderDetail);
                           return (
                             <tr key={index}>
                               <td className="center">{index + 1}</td>

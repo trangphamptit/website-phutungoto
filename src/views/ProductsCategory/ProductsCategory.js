@@ -7,11 +7,8 @@ class Products extends Component {
     const categoryId = this.props.match.params.id;
     this.context.getProductscategory(categoryId);
   }
-
   render() {
-    // console.log(this.props);
     const { productscategory } = this.context;
-    console.log("productcate", productscategory);
     return (
       <div className="products">
         <div className="row">
