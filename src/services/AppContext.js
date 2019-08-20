@@ -181,7 +181,7 @@ class AppProvider extends Component {
           getFromLocal: this.getFromLocal,
           getDeliveryLocal: this.getDeliveryLocal,
           getOrderStatus: this.getOrderStatus,
-          formatMoney: this.formatMoney
+          formatMoney: this.formatMoney,
         }}
       >
         {this.props.children}
