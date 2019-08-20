@@ -30,7 +30,7 @@ export default function CartItem({ item, value, key }) {
               </button>
             </div>
           </td>
-          <td> {value.formatMoney(total)}</td>
+          <td> {total ? value.formatMoney(total): "0đ"}</td>
           <td className="cart-icon" onClick={() => value.removeItem(item._id)}>
             <i className="fas fa-trash" style={{ color: "yellow" }} />
           </td>

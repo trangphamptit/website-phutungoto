@@ -3,7 +3,6 @@ import React, { Component } from "react";
 // import Slider from "../../components/Slider/Slider";
 
 import { Link } from "react-router-dom";
-import ListCategory from "../ListCategory/ListCategory";
 import BestSellerProduct from "../BestSeller/BestSellerProduct";
 import Product from "../../components/Product/Product";
 

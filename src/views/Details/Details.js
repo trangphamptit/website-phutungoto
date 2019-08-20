@@ -69,13 +69,16 @@ class Details extends Component {
                   className="btn btn-danger text-uppercase mb-3 px-5"
                   onClick={() => {
                     let orderDetails = [];
-                    let numberProducts = this.props.values;
+                    let {numberProducts} = this.props.values;
 
                     let productID = _id;
 
                     orderDetails.push({
+                      name,
                       productID,
-                      numberProducts
+                      cartquantity: numberProducts,
+                      price,
+                      discountAmount
                     });
                     addToCart(orderDetails);
                     localStorage.setItem(

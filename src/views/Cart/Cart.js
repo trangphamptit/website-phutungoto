@@ -12,6 +12,7 @@ export default class Cart extends Component {
         <AppContext.Consumer>
           {value => {
             const { cart } = value;
+            console.log('cart :',cart);
             if (cart.length > 0) {
               const subtotal = value.getTotal(cart);
               return (
@@ -33,7 +34,7 @@ export default class Cart extends Component {
                   </div>
                   <CartTotals
                     value={value}
-                    total={subtotal}
+                    total={subtotal ? subtotal : 0}
                     history={this.props.history}
                   />
                 </React.Fragment>
