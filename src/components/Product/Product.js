@@ -25,7 +25,7 @@ class Product extends Component {
                 className="cart-btn"
                 onClick={() => {
                   addToCart(product);
-                  localStorage.setItem("product", JSON.stringify(product));
+                  // localStorage.setItem("product", JSON.stringify(product));
                 }}
               >
                 <i className="fas fa-cart-plus" />

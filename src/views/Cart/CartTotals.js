@@ -4,10 +4,12 @@ import { AppContext } from "../../services/AppContext";
 
 export default class CartTotals extends Component {
   checkLogin = () => {
+    const { cart } = this.context;
     // console.log(this.props.history);
     let user = localStorage.getItem("user");
     if (user) {
       this.props.history.push("/delivery");
+      localStorage.setItem("cart", JSON.stringify(cart));
     } else {
       this.props.history.push("/login");
     }

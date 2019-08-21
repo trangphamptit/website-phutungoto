@@ -80,12 +80,12 @@ class AppProvider extends Component {
   logout = user => {
     this.setState({ user: null });
     localStorage.removeItem("user");
-    localStorage.removeItem("details");
+    localStorage.removeItem("cart");
   };
 
   addToCart = product => {
     product.cartquantity = 1;
-    console.log('product :', product);
+    // console.log('product :', product);
     this.setState({
       cart: this.state.cart.concat(product)
     });

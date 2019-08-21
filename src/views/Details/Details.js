@@ -82,10 +82,10 @@ class Details extends Component {
                       quantity
                     });
                     addToCart(orderDetails);
-                    localStorage.setItem(
-                      "details",
-                      JSON.stringify(orderDetails)
-                    );
+                    // localStorage.setItem(
+                    //   "details",
+                    //   JSON.stringify(orderDetails)
+                    // );
                   }}
                 >
                   add to cart
