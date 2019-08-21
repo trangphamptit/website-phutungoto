@@ -85,6 +85,7 @@ class AppProvider extends Component {
 
   addToCart = product => {
     product.cartquantity = 1;
+    console.log('product :', product);
     this.setState({
       cart: this.state.cart.concat(product)
     });
