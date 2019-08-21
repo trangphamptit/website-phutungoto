@@ -107,6 +107,7 @@ class AppProvider extends Component {
       totalProduct = (item.price - item.discountAmount) * item.cartquantity;
     }
     console.log("item", totalProduct);
+    return totalProduct;
   };
   getLengthCart = cart => {
     let lengthCart = 0;
