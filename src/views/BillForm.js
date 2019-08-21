@@ -87,7 +87,7 @@ class BillForm extends Component {
                   <tbody>
                     {cart.map((item, index) => (
                       <tr key={index}>
-                        <td className="center">{index}</td>
+                        <td className="center">{index + 1}</td>
                         <td className="left strong">{item.name}</td>
                         <td className="right">{formatMoney(item.price)}</td>
                         <td className="right">{item.cartquantity}</td>
