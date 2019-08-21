@@ -17,7 +17,7 @@ class Modal extends Component {
                 <div className="row">
                   <div
                     id="modal"
-                    className="col-8 mx-auto col-md-6 col-lg-4 text-center text-capitalize"
+                    className="col-8 mx-auto col-md-6 col-lg-6 text-center text-capitalize"
                   >
                     <h5>Sản phẩm đã được cho vào giỏ hàng</h5>
                     <img
@@ -32,7 +32,7 @@ class Modal extends Component {
                         className="btn btn-danger text-uppercase mb-3"
                         onClick={() => closeModal()}
                       >
-                        home
+                        về trang chủ
                       </button>
                     </Link>
                     <Link to="/orders">
@@ -40,7 +40,7 @@ class Modal extends Component {
                         className="btn btn-danger text-uppercase mb-3 "
                         onClick={() => closeModal()}
                       >
-                        orders history
+                        xem các đơn hàng
                       </button>
                     </Link>
                   </div>

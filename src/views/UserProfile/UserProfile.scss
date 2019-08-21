@@ -2,7 +2,7 @@
   text-align: center;
   margin: auto;
   color: white;
-  height: 400px;
+  height: auto;
 
   padding: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -25,4 +25,11 @@
     opacity: 0.8;
     border-radius: 8px;
   }
+}
+.orders {
+  text-decoration: none;
+}
+.orders:hover {
+  color: red;
+  cursor: pointer;
 }

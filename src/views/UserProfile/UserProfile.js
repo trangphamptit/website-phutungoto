@@ -3,14 +3,15 @@ import "./UserProfile.scss";
 
 import useraccount from "../../image/useraccount.jpg";
 import { AppContext } from "../../services/AppContext";
+import { Link } from "react-router-dom";
 class UserProfile extends Component {
   render() {
     const { user } = this.context;
-    if (user) {
-      console.log("user", user);
-    } else {
-      console.log("err");
-    }
+    // if (user) {
+    //   console.log("user", user);
+    // } else {
+    //   console.log("err");
+    // }
 
     if (user) {
       return (
@@ -23,6 +24,11 @@ class UserProfile extends Component {
             <label className="email">{user.email}</label>
             <h4>Số điện thoại</h4>
             <label className="phone">{user.phone}</label>
+
+            <Link to="/orders">
+              {" "}
+              <h4 className="orders">Xem các đơn hàng</h4>
+            </Link>
           </div>
         </div>
       );

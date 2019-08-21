@@ -9,7 +9,6 @@ class OrdersCustomer extends Component {
   componentDidMount() {
     setTimeout(async () => {
       let { user } = this.context;
-
       if (user) {
         await this.context.getOrdersCustomer(user._id);
       } else {
@@ -19,7 +18,7 @@ class OrdersCustomer extends Component {
   }
   render() {
     let { orders, products, user, getOrderStatus, formatMoney } = this.context;
-    // console.log("orders", orders);
+    console.log("orders", orders);
     // console.log("user", user);
 
     if (user) {
@@ -60,7 +59,9 @@ class OrdersCustomer extends Component {
                                 {formatMoney(orderDetail.price)}
                               </td>
                               <td className="center">{orderDetail.quantity}</td>
-                              <td className="right">{orderDetail.total}</td>
+                              <td className="right">
+                                {formatMoney(orderDetail.total)}
+                              </td>
                             </tr>
                           );
                         })}

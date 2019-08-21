@@ -61,15 +61,15 @@ class Details extends Component {
                     max="10"
                     name="numberProducts"
                     onChange={this.props.handleChange}
+                    value={this.props.values.numberProducts}
                   />
                 </div>
-                <ErrorMessage name="numberProducts" />
                 <button
                   type="submit"
                   className="btn btn-danger text-uppercase mb-3 px-5"
                   onClick={() => {
                     let orderDetails = [];
-                    let {numberProducts} = this.props.values;
+                    let { numberProducts } = this.props.values;
 
                     let productID = _id;
 
@@ -78,7 +78,8 @@ class Details extends Component {
                       productID,
                       cartquantity: numberProducts,
                       price,
-                      discountAmount
+                      discountAmount,
+                      quantity
                     });
                     addToCart(orderDetails);
                     localStorage.setItem(

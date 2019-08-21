@@ -4,18 +4,10 @@ import { Link } from "react-router-dom";
 import { AppContext } from "../../services/AppContext";
 
 class Product extends Component {
-  _renderSize(size) {
-    return (
-      <div className="mr-1">
-        Size {size.value} - $ {size.price}
-      </div>
-    );
-  }
-
   render() {
     const { bestseller } = this.props;
-    const { addToCart } = this.context;
-    const { _id, image, name, variantProducts, discountAmount } = bestseller;
+    const { addToCart, formatMoney } = this.context;
+    const { _id, image, name, discountAmount, price } = bestseller;
     return (
       <div className="product col-xl-3 col-lg-3 col-md-3 col-sm-12">
         <div className="card ">
@@ -33,7 +25,6 @@ class Product extends Component {
                 className="cart-btn"
                 onClick={() => {
                   bestseller.quantity = 1;
-                  bestseller.size = bestseller.variantProducts[0];
                   addToCart(bestseller);
                 }}
               >
@@ -44,11 +35,7 @@ class Product extends Component {
         </div>
         <div className="card-footer ">
           <p className="product-name ">{name}</p>
-          <h5 className="product-price ">
-            {variantProducts &&
-              variantProducts[0] &&
-              this._renderSize(variantProducts[0])}
-          </h5>
+          <h5 className="product-price ">{formatMoney(price)}</h5>
         </div>
       </div>
     );

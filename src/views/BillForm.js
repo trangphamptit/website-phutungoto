@@ -4,8 +4,11 @@ import { apiLinks } from "../services/APILinks";
 import axios from "axios";
 import Modal from "../components/Modal/Modal";
 import "./BillForm.scss";
+import Swal from "sweetalert2";
+import { withRouter } from "react-router";
 class BillForm extends Component {
   createOrder = () => {
+    console.log("props", this.props);
     const { clearCart, openModal } = this.context;
     let orders = this.context.cart.map(item => {
       let orderDetail = {
@@ -26,14 +29,25 @@ class BillForm extends Component {
           clearCart();
           openModal();
         } else {
-          alert("Can't create order. Please try again");
+          Swal.fire({
+            type: "error",
+            title: "Oops...",
+            text: "Đặt hàng không thành công, vui lòng kiểm tra lại"
+          });
         }
       })
       .catch(function(error) {
         console.log(error);
+        Swal.fire({
+          type: "error",
+          title: "Oops...",
+          text: "Đặt hàng không thành công, vui lòng kiểm tra lại"
+        });
       });
   };
   render() {
+    const { match, location, history } = this.props;
+
     const { cart, user, getTotal, formatMoney } = this.context;
 
     const total = getTotal(cart);
@@ -89,11 +103,15 @@ class BillForm extends Component {
                       <tr key={index}>
                         <td className="center">{index}</td>
                         <td className="left strong">{item.name}</td>
-                        <td className="right">{formatMoney(item.price)}</td>
+                        <td className="right">
+                          {formatMoney(item.price - item.discountAmount)}
+                        </td>
                         <td className="right">{item.cartquantity}</td>
                         <th className="right">
-                          {formatMoney(item.price - item.discountAmount) *
-                            item.cartquantity}
+                          {formatMoney(
+                            (item.price - item.discountAmount) *
+                              item.cartquantity
+                          )}
                         </th>
                       </tr>
                     ))}
@@ -148,4 +166,4 @@ class BillForm extends Component {
 }
 
 BillForm.contextType = AppContext;
-export default BillForm;
+export default withRouter(BillForm);

@@ -3,6 +3,7 @@ import { AppContext } from "../../services/AppContext";
 
 export default function CartItem({ item, value, key }) {
   let total = (item.price - item.discountAmount) * item.cartquantity;
+  console.log("total", total);
   return (
     <AppContext.Consumer>
       {value => (
@@ -30,7 +31,7 @@ export default function CartItem({ item, value, key }) {
               </button>
             </div>
           </td>
-          <td> {total ? value.formatMoney(total): "0đ"}</td>
+          <td> {total ? value.formatMoney(total) : "0đ"}</td>
           <td className="cart-icon" onClick={() => value.removeItem(item._id)}>
             <i className="fas fa-trash" style={{ color: "yellow" }} />
           </td>

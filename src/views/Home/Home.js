@@ -19,10 +19,8 @@ class Home extends Component {
 
   render() {
     const { bestsellers, products, categories, brands } = this.context;
-    console.log('categories :', categories);
     return (
       <div className="home col-12">
-        {/* <Slider /> */}
         <div className="title-nav">
           <h1>Sản phẩm bán chạy</h1>
           <Link to="/bestseller">
@@ -41,7 +39,6 @@ class Home extends Component {
                   />
                 ))
             : null}
-          {/* <BestSeller /> */}
         </div>
 
         <div className="title-nav">
@@ -52,9 +49,12 @@ class Home extends Component {
           </Link>
         </div>
         <div className="row">
-          {categories ? categories.slice(0, 4).map(category => (
-              <Category key={category._id} category={category} />
-            )) 
+          {categories
+            ? categories
+                .slice(0, 4)
+                .map(category => (
+                  <Category key={category._id} category={category} />
+                ))
             : null}
         </div>
 
@@ -66,25 +66,26 @@ class Home extends Component {
           </Link>
         </div>
         <div className="row">
-        {brands ? brands.slice(0, 4).map(brand => (
-              <Brand key={brand._id} brand={brand} />
-            )) 
+          {brands
+            ? brands
+                .slice(0, 4)
+                .map(brand => <Brand key={brand._id} brand={brand} />)
             : null}
         </div>
 
         <div className="title-nav ">
           <h1>Tất cả sản phẩm</h1>
-
           <Link to="/products">
             {" "}
             <button className="btn btn-danger px-2">xem thêm</button>
           </Link>
         </div>
-
         <div className="row">
-            {products ? products.slice(0, 4).map(product => (
-                <Product key={product._id} product={product} />
-              )) : null}
+          {products
+            ? products
+                .slice(0, 4)
+                .map(product => <Product key={product._id} product={product} />)
+            : null}
         </div>
       </div>
     );

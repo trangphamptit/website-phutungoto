@@ -11,6 +11,7 @@ class Delivery extends Component {
       <AppContext.Consumer>
         {value => {
           const { user } = value;
+          console.log("user", user);
           return (
             <Form
               className="deliveryform col-12 col-md-8 col-lg-8 col-sm-12"
@@ -128,6 +129,7 @@ const FormikForm = withFormik({
     let deliveryinfor = values;
     localStorage.setItem("deliveryinfor", JSON.stringify(deliveryinfor));
     props.history.push("/billform");
+
     // Simulates the delay of a real request
     setTimeout(() => setSubmitting(false), 3 * 1000);
   },
