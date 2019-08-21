@@ -80,6 +80,7 @@ class AppProvider extends Component {
   logout = user => {
     this.setState({ user: null });
     localStorage.removeItem("user");
+    localStorage.removeItem("details");
   };
 
   addToCart = product => {
@@ -87,14 +88,24 @@ class AppProvider extends Component {
     this.setState({
       cart: this.state.cart.concat(product)
     });
-    // console.log("cart", this.state.cart);
   };
-  getTotal = cart => {
-    let _total = 0;
+  //get total products same id
+  getTotalCart = cart => {
+    let totalCart = 0;
     cart.map(item => {
-      _total += (item.price - item.discountAmount) * item.cartquantity;
+      totalCart += this.getTotalProduct(item);
     });
-    return _total;
+    return totalCart;
+  };
+
+  getTotalProduct = item => {
+    let totalProduct = 0;
+    if (typeof discountAmount === "object") {
+      totalProduct = item.price * item.cartquantity;
+    } else {
+      totalProduct = (item.price - item.discountAmount) * item.cartquantity;
+    }
+    console.log("item", totalProduct);
   };
   getLengthCart = cart => {
     let lengthCart = 0;
@@ -168,7 +179,7 @@ class AppProvider extends Component {
         value={{
           ...this.state,
           addToCart: this.addToCart,
-          getTotal: this.getTotal,
+          getTotalCart: this.getTotalCart,
           clearCart: this.clearCart,
           removeItem: this.removeItem,
           login: this.login,
@@ -182,6 +193,7 @@ class AppProvider extends Component {
           getDeliveryLocal: this.getDeliveryLocal,
           getOrderStatus: this.getOrderStatus,
           formatMoney: this.formatMoney,
+          getTotalProduct: this.getTotalProduct
         }}
       >
         {this.props.children}

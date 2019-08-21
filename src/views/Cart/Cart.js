@@ -12,9 +12,9 @@ export default class Cart extends Component {
         <AppContext.Consumer>
           {value => {
             const { cart } = value;
-            console.log('cart :',cart);
+            console.log("cart :", cart);
             if (cart.length > 0) {
-              const subtotal = value.getTotal(cart);
+              const subtotal = value.getTotalCart(cart);
               return (
                 <React.Fragment>
                   <h1 style={{ textAlign: "center" }}>Sản phẩm đã chọn</h1>

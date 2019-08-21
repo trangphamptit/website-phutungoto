@@ -71,11 +71,11 @@ class Details extends Component {
                     let orderDetails = [];
                     let { numberProducts } = this.props.values;
 
-                    let productID = _id;
+                    // let productID = _id;
 
                     orderDetails.push({
                       name,
-                      productID,
+                      _id,
                       cartquantity: numberProducts,
                       price,
                       discountAmount,

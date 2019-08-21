@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./Product.scss";
 import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
 import { AppContext } from "../../services/AppContext";
 class Product extends Component {
   render() {
     const { product } = this.props;
-    const { _id, image, name, price, discountAmount } = product;
+    const { _id, image, name, price, discountAmount, quantity } = product;
     const { addToCart, formatMoney } = this.context;
     return (
       <div className="product col-xl-3 col-lg-3 col-md-3 col-sm-12">
@@ -25,6 +25,7 @@ class Product extends Component {
                 className="cart-btn"
                 onClick={() => {
                   addToCart(product);
+                  localStorage.setItem("product");
                 }}
               >
                 <i className="fas fa-cart-plus" />
@@ -40,7 +41,6 @@ class Product extends Component {
     );
   }
 }
-
 Product.contextType = AppContext;
 
 export default Product;

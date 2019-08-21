@@ -7,12 +7,6 @@ import { Link } from "react-router-dom";
 class UserProfile extends Component {
   render() {
     const { user } = this.context;
-    // if (user) {
-    //   console.log("user", user);
-    // } else {
-    //   console.log("err");
-    // }
-
     if (user) {
       return (
         <div className="profile col-8">
