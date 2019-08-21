@@ -48,9 +48,15 @@ class BillForm extends Component {
   render() {
     const { match, location, history } = this.props;
 
-    const { cart, user, getTotal, formatMoney } = this.context;
+    const {
+      cart,
+      user,
+      getTotalCart,
+      formatMoney,
+      getTotalProduct
+    } = this.context;
 
-    const total = getTotal(cart);
+    const total = getTotalCart(cart);
     return (
       <React.Fragment>
         <Modal />
@@ -108,10 +114,7 @@ class BillForm extends Component {
                         </td>
                         <td className="right">{item.cartquantity}</td>
                         <th className="right">
-                          {formatMoney(
-                            (item.price - item.discountAmount) *
-                              item.cartquantity
-                          )}
+                          {formatMoney(getTotalProduct(item))}
                         </th>
                       </tr>
                     ))}
