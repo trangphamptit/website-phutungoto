@@ -101,7 +101,8 @@ class AppProvider extends Component {
 
   getTotalProduct = item => {
     let totalProduct = 0;
-    if (typeof discountAmount === "object") {
+    console.log('item info :', item);
+    if (typeof item.discountAmount === "object") {
       totalProduct = item.price * item.cartquantity;
     } else {
       totalProduct = (item.price - item.discountAmount) * item.cartquantity;
@@ -109,6 +110,7 @@ class AppProvider extends Component {
     console.log("item", totalProduct);
     return totalProduct;
   };
+
   getLengthCart = cart => {
     let lengthCart = 0;
     cart.map(item => {
